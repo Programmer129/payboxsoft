@@ -1,0 +1,34 @@
+<form #registerForm="ngForm" (ngSubmit)="onTransfer(registerForm)" class="registerForm">
+  <div>
+    <label for="accountNumber">Account Number:</label>
+    <input type="text" name="accountNumber" #accountNumber="ngModel" ngModel id="accountNumber" maxlength="22"
+           required>
+  </div>
+  <div>
+    <label for="personalNumber">Personal Number:</label>
+    <input type="text" name="personalNumber" #personalNumber="ngModel" ngModel id="personalNumber" maxlength="11"
+           required>
+  </div>
+  <div>
+    <label for="mobileNumber">Mobile Number:</label>
+    <input type="text" name="mobileNumber" #mobileNumber="ngModel" ngModel id="mobileNumber" maxlength="9"
+           required>
+  </div>
+  <div>
+    <label for="amount">Amount(GEL):</label>
+    <input type="text" name="amount" #amount="ngModel" ngModel id="amount" required (keyup)="getPrePrice()">
+  </div>
+  <div *ngIf="error">
+    <p class="error">Invalid value</p>
+  </div>
+  <div *ngIf="total">
+    <p>Total: {{total}}</p>
+    <p>Commission: {{commission}}</p>
+  </div>
+  <div>
+    <input [disabled]="!registerForm.valid" type="submit" value="Transfer">
+  </div>
+  <div *ngIf="transferSuccess">
+    <p class="success">Successfull transfer</p>
+  </div>
+</form>

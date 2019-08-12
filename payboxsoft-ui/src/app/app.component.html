@@ -1,0 +1,21 @@
+<div class="container">
+  <button *ngIf="menu" id="mobile" class="box" (click)="loadMobile()">
+    <p>Mobile</p>
+  </button>
+  <button *ngIf="menu" id="charity" class="box" (click)="loadCharity()">
+    <p>Charity</p>
+  </button>
+  <button *ngIf="menu" id="utility" class="box" (click)="loadUtility()">
+    <p>Utility</p>
+  </button>
+  <button *ngIf="menu" id="financial" class="box" (click)="loadFinancial()">
+    <p>Financial</p>
+  </button>
+  <div *ngIf="!menu" class="inner-box">
+    <input type="button" value="Go Back" (click)="goBack()">
+    <app-charity *ngIf="charity"></app-charity>
+    <app-mobile *ngIf="mobile"></app-mobile>
+    <app-financial *ngIf="financial"></app-financial>
+  </div>
+</div>
+
